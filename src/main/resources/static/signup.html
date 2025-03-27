@@ -1,0 +1,103 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up as Mentee</title>
+    <style>
+        .hero-background {
+    background: url('background.jpg') no-repeat center center/cover;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+.signup-container {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 30px;
+    border-radius: 10px;
+    text-align: left;
+    color: white;
+    width: 350px;
+    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2);
+}
+
+.signup-title {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 25px;
+    border: none;
+    background: #333;
+    color: white;
+    text-align: center;
+}
+
+button.signup-btn {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    background: #4CAF50;
+    color: white;
+    font-weight: bold;
+}
+
+button.signup-btn:hover {
+    background: #45a049;
+}
+    </style>
+</head>
+<body class="hero-background">
+    <div class="signup-container">
+        <h2 class="signup-title">Sign up as Mentee</h2>
+        <form id="menteeForm">
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="firstName" required>
+            
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <small id="emailError" style="color: red; display: none;">Please enter a valid email (example@domain.com).</small>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            
+            <button type="submit" class="signup-btn">Sign Up</button>
+        </form>
+    </div>
+    <script>
+        document.getElementById('menteeForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            let emailInput = document.getElementById('email');
+            let emailError = document.getElementById('emailError');
+            let emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            
+            if (!emailPattern.test(emailInput.value)) {
+                emailError.style.display = 'block';
+                return;
+            } else {
+                emailError.style.display = 'none';
+            }
+            alert('Mentee Registration Successful!');
+            window.location.href = 'dashboard.html';
+        });
+    </script>
+</body>
+</html>
+
+
